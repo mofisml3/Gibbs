@@ -142,42 +142,63 @@ function setReactionMood(mood) {
     particleSpeed = 0.8;
     particleColor = "#c9a44a";
   }
-  particles.forEach(p => p.el.style.background = particleColor);
+  particles.forEach(p => p.el.setAttribute("fill", particleColor));
 }
+
+// Particles live inside the beaker SVG, in the liquid region:
+// x ∈ [24, 176], y ∈ [82, 266] (clipped to liquidClip path)
+const SVG_NS = "http://www.w3.org/2000/svg";
+const LIQUID = { xMin: 26, xMax: 174, yMin: 84, yMax: 264 };
 
 function initParticles() {
-  const stage = $("#beaker-particles");
+  const stage = document.getElementById("beaker-particles");
   if (!stage) return;
-  stage.innerHTML = "";
+  while (stage.firstChild) stage.removeChild(stage.firstChild);
   particles.length = 0;
-  const W = 160, H = 200;
-  for (let i = 0; i < 28; i++) {
-    const el = document.createElement("div");
-    el.className = "particle";
-    el.style.background = particleColor;
-    el.style.opacity = 0.7;
+
+  // Two species — cation (NH4+) and anion (NO3-) — to depict dissolution
+  const N = 26;
+  for (let i = 0; i < N; i++) {
+    const el = document.createElementNS(SVG_NS, "circle");
+    const isCation = i % 2 === 0;
+    el.setAttribute("r", isCation ? 2.6 : 3.2);
+    el.setAttribute("fill", particleColor);
+    el.setAttribute("fill-opacity", "0.85");
+    el.setAttribute("stroke", "#fff");
+    el.setAttribute("stroke-width", "0.4");
     stage.appendChild(el);
+
     particles.push({
       el,
-      x: Math.random() * W,
-      y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 2,
-      vy: (Math.random() - 0.5) * 2,
+      isCation,
+      x: LIQUID.xMin + Math.random() * (LIQUID.xMax - LIQUID.xMin),
+      y: LIQUID.yMin + Math.random() * (LIQUID.yMax - LIQUID.yMin),
+      vx: (Math.random() - 0.5) * 1.6,
+      vy: (Math.random() - 0.5) * 1.6,
     });
   }
-  animateParticles(W, H);
+  animateParticles();
 }
 
-function animateParticles(W, H) {
+function animateParticles() {
   function tick() {
     particles.forEach(p => {
       p.x += p.vx * particleSpeed;
       p.y += p.vy * particleSpeed;
-      if (p.x < 0 || p.x > W) p.vx *= -1;
-      if (p.y < 0 || p.y > H) p.vy *= -1;
-      p.x = Math.max(0, Math.min(W, p.x));
-      p.y = Math.max(0, Math.min(H, p.y));
-      p.el.style.transform = `translate(${p.x}px, ${p.y}px)`;
+      // tiny Brownian jitter so motion looks like dispersion in solution
+      p.vx += (Math.random() - 0.5) * 0.08;
+      p.vy += (Math.random() - 0.5) * 0.08;
+      // clamp speed
+      const sp = Math.hypot(p.vx, p.vy);
+      const maxSp = 2.2;
+      if (sp > maxSp) { p.vx *= maxSp / sp; p.vy *= maxSp / sp; }
+      // bounce inside liquid bounds
+      if (p.x < LIQUID.xMin) { p.x = LIQUID.xMin; p.vx = Math.abs(p.vx); }
+      if (p.x > LIQUID.xMax) { p.x = LIQUID.xMax; p.vx = -Math.abs(p.vx); }
+      if (p.y < LIQUID.yMin) { p.y = LIQUID.yMin; p.vy = Math.abs(p.vy); }
+      if (p.y > LIQUID.yMax) { p.y = LIQUID.yMax; p.vy = -Math.abs(p.vy); }
+      p.el.setAttribute("cx", p.x);
+      p.el.setAttribute("cy", p.y);
     });
     requestAnimationFrame(tick);
   }
