@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تجربة طاقة كيبس الحرة ΔG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <template id="__bundler_thumbnail" data-bg-color="#f7f5f0">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#f7f5f0"/>
+      <g transform="translate(600 400)" text-anchor="middle" font-family="Tajawal, sans-serif">
+        <text y="-40" font-size="120" font-weight="800" fill="#4f6e38">ΔG</text>
+        <text y="40" font-size="44" font-weight="700" fill="#1f2520" direction="ltr">ΔH − TΔS</text>
+        <text y="110" font-size="28" fill="#8a8f87">طاقة كِبس الحرة</text>
+      </g>
+    </svg>
+  </template>
+</head>
+<body>
+  <div class="app" data-screen-label="Gibbs Free Energy Lesson">
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="title-wrap">
+        <h1>تجربة الطاقة الحرة <span style="color:var(--ink);">(ΔG)</span></h1>
+        <div class="sub">طاقة كِبس الحرة — تجربة تعليمية تفاعلية للمرحلة الثانوية</div>
+      </div>
+      <div class="crest">
+        <div class="crest-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3v18M5 8h14M5 16h14"/>
+          </svg>
+        </div>
+        <div>المختبر الافتراضي<br/><span style="color:var(--muted);font-weight:500;">الوحدة: الثرموداينميكا</span></div>
+      </div>
+    </header>
+
+    <!-- Stepper -->
+    <nav class="stepper" aria-label="مراحل التجربة">
+      <div class="step-pill active"><span class="num">1</span><span>المفهوم والقانون</span></div>
+      <div class="step-pill"><span class="num">2</span><span>المختبر الافتراضي</span></div>
+      <div class="step-pill"><span class="num">3</span><span>دلالات إشارة ΔG</span></div>
+      <div class="step-pill"><span class="num">4</span><span>التقويم التفاعلي</span></div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- Step 1: Concept                              -->
+    <!-- ============================================ -->
+    <section class="section active" data-screen-label="01 Concept">
+      <h2>ما هي طاقة كبس الحرة؟</h2>
+      <p class="lead">المرحلة الأولى من التجربة: نتعرّف على المفهوم والمعادلة الأساسية التي تحكم تلقائية التفاعلات الكيميائية والتغيرات الفيزيائية.</p>
+
+      <div class="concept-grid">
+        <div class="concept-text">
+          <p>
+            <span class="term">طاقة كبس الحرة (ΔG)</span> هي دالة حالة ثرموداينميكية تتيح لنا التنبؤ بتلقائية التفاعل، تمثّل الطاقة العظمى التي يمكن الحصول عليها من قياس التغير في
+            <span class="term">الانثالبي (ΔH)</span>
+            والتغير في
+            <span class="term">الانتروبي (ΔS)</span>.
+          </p>
+          <p>
+            بمعنى آخر: ΔG تجمع بين «اتجاه الطاقة» الذي يصفه ΔH، و«اتجاه الفوضى» الذي يصفه ΔS، لتعطينا قيمة واحدة تخبرنا — هل التفاعل سيحدث من تلقاء نفسه أم لا.
+          </p>
+          <p>
+            في الظروف الاعتيادية (T = 298 K، P = 1 atm) نُسمّي هذه الكمية <span class="term">طاقة كبس الحرة القياسية للتفاعل (°ΔG)</span>.
+          </p>
+        </div>
+
+        <div class="equation-card">
+          <div class="label">قانون التغير في طاقة كبس الحرة</div>
+          <div class="eq">
+            <span class="v">ΔG</span> = <span class="h">ΔH</span> − T·<span class="s">ΔS</span>
+          </div>
+          <div class="legend">
+            <span><b>ΔG</b><span class="dot g"></span> الطاقة الحرة</span>
+            <span><b>ΔH</b><span class="dot h"></span> الانثالبي</span>
+            <span><b>T</b> درجة الحرارة</span>
+            <span><b>ΔS</b><span class="dot s"></span> الانتروبي</span>
+          </div>
+          <div style="margin-top:18px; padding-top:16px; border-top:1px dashed var(--rule); font-size:13px; color:var(--ink-soft); direction:rtl;">
+            T مقاسة بـ <b>كلفن (K)</b> · ΔH بـ <b>kJ/mol</b> · ΔS بـ <b>J/mol·K</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="signs">
+        <div class="sign-card neg">
+          <div class="badge">ΔG &lt; 0</div>
+          <h4>قيمة سالبة</h4>
+          <p>التفاعل أو التغير الفيزيائي <b>تلقائي</b> — يحدث من تلقاء نفسه دون الحاجة إلى طاقة خارجية مستمرة.</p>
+        </div>
+        <div class="sign-card pos">
+          <div class="badge">ΔG &gt; 0</div>
+          <h4>قيمة موجبة</h4>
+          <p>التفاعل أو التغير الفيزيائي <b>غير تلقائي</b> — يحتاج إلى طاقة خارجية لإحداثه.</p>
+        </div>
+        <div class="sign-card zero">
+          <div class="badge">ΔG = 0</div>
+          <h4>قيمة تساوي صفر</h4>
+          <p>النظام في <b>حالة اتزان</b> — السرعة الأمامية للتفاعل تساوي السرعة العكسية.</p>
+        </div>
+      </div>
+
+      <div class="foot-nav" style="margin-top:34px;">
+        <span></span>
+        <button class="btn foot-next">انتقل إلى المختبر الافتراضي ←</button>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- Step 2: Lab simulator                        -->
+    <!-- ============================================ -->
+    <section class="section" data-screen-label="02 Lab">
+      <h2>المختبر الافتراضي: ذوبان نترات الأمونيوم</h2>
+      <p class="lead">عدّل قيم ΔH و ΔS ودرجة الحرارة T، وراقب كيف تتغير قيمة ΔG ومدى تلقائية التفاعل لحظيًا. التجربة المرجعية: <b>ذوبان نترات الأمونيوم في الماء</b> — عملية تعتمد على الطاقة والانتروبي.</p>
+
+      <div class="lab">
+        <!-- Stage -->
+        <div class="lab-stage">
+          <div class="verdict-tag" id="verdict-tag">
+            <div style="font-size:11px; color:var(--muted); letter-spacing:1px;">الحالة الحالية</div>
+            <div class="v-state" id="verdict-state">تفاعل تلقائي</div>
+          </div>
+
+          <div class="thermometer">
+            <div style="font-size:11px; color:var(--muted); letter-spacing:1px; margin-bottom:4px;">درجة الحرارة</div>
+            <div class="t-val" id="therm-val">298 K</div>
+            <div style="font-size:12px; color:var(--ink-soft);" id="therm-c">25 °C</div>
+            <div style="margin-top:10px; height:60px; width:8px; background:#eee; border-radius:4px; position:relative; overflow:hidden; margin-right:auto; margin-left:0;">
+              <div id="therm-fill" style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(180deg, var(--terracotta), #e8a878); border-radius:4px; transition:height .4s ease;"></div>
+            </div>
+          </div>
+
+          <div class="beaker">
+            <svg viewBox="0 0 200 280" preserveAspectRatio="none">
+              <!-- beaker outline -->
+              <defs>
+                <linearGradient id="liq" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#cfe0d2" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#9bb89e" stop-opacity="0.95"/>
+                </linearGradient>
+              </defs>
+              <!-- spout -->
+              <path d="M 30 20 L 30 5 L 50 5" fill="none" stroke="#888" stroke-width="2"/>
+              <!-- container -->
+              <path d="M 20 20 L 20 260 Q 20 270 30 270 L 170 270 Q 180 270 180 260 L 180 20"
+                    fill="rgba(255,255,255,0.4)" stroke="#666" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- liquid -->
+              <path d="M 22 80 L 22 258 Q 22 268 32 268 L 168 268 Q 178 268 178 258 L 178 80 Z"
+                    fill="url(#liq)" />
+              <!-- liquid surface -->
+              <ellipse cx="100" cy="80" rx="78" ry="6" fill="#b3cdb6" opacity="0.6"/>
+              <!-- tick marks -->
+              <g stroke="#666" stroke-width="1" opacity="0.5">
+                <line x1="20" y1="100" x2="32" y2="100"/>
+                <line x1="20" y1="140" x2="32" y2="140"/>
+                <line x1="20" y1="180" x2="32" y2="180"/>
+                <line x1="20" y1="220" x2="32" y2="220"/>
+              </g>
+              <text x="38" y="103" font-size="9" fill="#666" font-family="monospace">100</text>
+              <text x="38" y="143" font-size="9" fill="#666" font-family="monospace">200</text>
+              <text x="38" y="183" font-size="9" fill="#666" font-family="monospace">300</text>
+              <text x="38" y="223" font-size="9" fill="#666" font-family="monospace">400</text>
+              <!-- label -->
+              <text x="100" y="295" font-size="11" fill="#555" text-anchor="middle" font-family="Tajawal">NH₄NO₃ + H₂O</text>
+            </svg>
+            <!-- particle layer -->
+            <div id="beaker-particles" style="position:absolute; left:20px; top:80px; width:160px; height:200px; pointer-events:none;"></div>
+          </div>
+
+          <div class="bench"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <h3><span class="pip"></span> لوحة التحكم بالمتغيرات</h3>
+
+          <div class="slider-row">
+            <div class="row-head">
+              <span class="lab-name h">ΔH — التغير في الانثالبي</span>
+              <span class="lab-val"><span id="lab-h">25.7</span> kJ/mol</span>
+            </div>
+            <input type="range" id="sl-h" min="-200" max="200" step="0.5" value="25.7" />
+            <div class="desc">القيمة السالبة: تفاعل طارد للحرارة · القيمة الموجبة: تفاعل ماص للحرارة</div>
+          </div>
+
+          <div class="slider-row">
+            <div class="row-head">
+              <span class="lab-name s">ΔS — التغير في الانتروبي</span>
+              <span class="lab-val"><span id="lab-s">108.7</span> J/mol·K</span>
+            </div>
+            <input type="range" id="sl-s" min="-300" max="300" step="0.5" value="108.7" />
+            <div class="desc">القيمة الموجبة: زيادة في الفوضى · القيمة السالبة: نقصان في الفوضى</div>
+          </div>
+
+          <div class="slider-row">
+            <div class="row-head">
+              <span class="lab-name t">T — درجة الحرارة المطلقة</span>
+              <span class="lab-val"><span id="lab-t">298</span> K</span>
+            </div>
+            <input type="range" id="sl-t" min="250" max="450" step="1" value="298" />
+            <div class="desc">الظروف الاعتيادية: T = 298 K (25 °C) و P = 1 atm</div>
+          </div>
+
+          <div class="readout">
+            <div class="row-eq">
+              ΔG = <span class="num" id="out-h">+25.70</span> − ( <span class="num" id="out-t">298</span> × <span class="num" id="out-s">+108.70</span>/1000 )
+            </div>
+            <div class="row-eq" style="border:none; margin-bottom:6px; font-size:14px; color:var(--muted);">
+              ΔG = ΔH − TΔS  =  ΔH − <span id="out-ts">+32.39</span>
+            </div>
+            <div class="delta-g neg" id="out-g">−6.69</div>
+            <div class="units">kJ/mol</div>
+          </div>
+
+          <div class="preset-row">
+            <button class="preset" data-preset="nh4no3">ذوبان NH₄NO₃</button>
+            <button class="preset" data-preset="combustion">احتراق الميثان</button>
+            <button class="preset" data-preset="melting">انصهار الجليد</button>
+            <button class="preset" data-preset="photosyn">التركيب الضوئي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot-nav">
+        <button class="btn ghost foot-prev">→ السابق</button>
+        <button class="btn foot-next">انتقل إلى دلالات ΔG ←</button>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- Step 3: Sign explorer                        -->
+    <!-- ============================================ -->
+    <section class="section" data-screen-label="03 Signs">
+      <h2>كيف تستخدم ΔG للتنبؤ بحدوث التفاعل؟</h2>
+      <p class="lead">إشارة قيمة ΔG هي المفتاح. القانون يربط بين إشارتي ΔH و ΔS ودرجة الحرارة T، فينتج عن ذلك أربع حالات أساسية يمكن استكشافها.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:18px;">
+
+        <div class="sign-card neg" style="padding:22px;">
+          <div class="badge">ΔH &lt; 0  ·  ΔS &gt; 0</div>
+          <h4 style="margin-bottom:6px;">تفاعل تلقائي عند جميع درجات الحرارة</h4>
+          <p>كلا الحدّين يعملان لصالح التلقائية: حد ΔH سالب، وحد −TΔS سالب أيضًا، فتكون ΔG سالبة دائمًا.</p>
+          <div style="margin-top:10px; font-family:var(--font-mono); font-size:13px; color:var(--ink-soft); direction:ltr;">
+            مثال: احتراق الميثان CH₄
+          </div>
+        </div>
+
+        <div class="sign-card pos" style="padding:22px;">
+          <div class="badge">ΔH &gt; 0  ·  ΔS &lt; 0</div>
+          <h4 style="margin-bottom:6px;">تفاعل غير تلقائي عند جميع درجات الحرارة</h4>
+          <p>كلا الحدّين يعملان ضد التلقائية: حد ΔH موجب، وحد −TΔS موجب أيضًا، فتكون ΔG موجبة دائمًا.</p>
+          <div style="margin-top:10px; font-family:var(--font-mono); font-size:13px; color:var(--ink-soft); direction:ltr;">
+            مثال: التركيب الضوئي
+          </div>
+        </div>
+
+        <div class="sign-card" style="padding:22px; border-color:var(--gold); background:#fdf7e7;">
+          <div class="badge" style="background:#f6e9bd; color:#9c7d1c;">ΔH &gt; 0  ·  ΔS &gt; 0</div>
+          <h4 style="margin-bottom:6px;">تلقائي عند درجات الحرارة المرتفعة</h4>
+          <p>عند T مرتفعة يصبح حد TΔS أكبر من ΔH فتنقلب ΔG إلى السالب. هذه هي حالة <b>ذوبان نترات الأمونيوم</b> في الماء.</p>
+          <div style="margin-top:10px; font-family:var(--font-mono); font-size:13px; color:var(--ink-soft); direction:ltr;">
+            مثال: NH₄NO₃ → NH₄⁺ + NO₃⁻
+          </div>
+        </div>
+
+        <div class="sign-card" style="padding:22px; border-color:var(--blue); background:var(--blue-soft);">
+          <div class="badge" style="background:#cfdcef; color:var(--blue);">ΔH &lt; 0  ·  ΔS &lt; 0</div>
+          <h4 style="margin-bottom:6px;">تلقائي عند درجات الحرارة المنخفضة</h4>
+          <p>عند T منخفضة يكون حد TΔS صغيرًا، فيغلب ΔH السالب، وتكون ΔG سالبة.</p>
+          <div style="margin-top:10px; font-family:var(--font-mono); font-size:13px; color:var(--ink-soft); direction:ltr;">
+            مثال: تجمّد الماء
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px; padding:20px 24px; background:var(--olive-soft); border-radius:12px; border-right:3px solid var(--olive-deep);">
+        <div style="font-weight:700; color:var(--olive-deep); margin-bottom:6px;">ملخص للحفظ</div>
+        <div style="color:var(--ink-soft); font-size:15px;">
+          إشارة ΔG هي المعيار الوحيد للحكم على تلقائية التفاعل. أما درجة الحرارة T فهي «المفتاح» الذي يحوّل بعض التفاعلات من غير تلقائية إلى تلقائية والعكس، وذلك عندما يكون لـ ΔH و ΔS الإشارة نفسها.
+        </div>
+      </div>
+
+      <div class="foot-nav">
+        <button class="btn ghost foot-prev">→ السابق</button>
+        <button class="btn foot-next">ابدأ التقويم التفاعلي ←</button>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- Step 4: Quiz                                 -->
+    <!-- ============================================ -->
+    <section class="section" data-screen-label="04 Quiz">
+      <h2>التقويم التفاعلي</h2>
+      <p class="lead">ثلاثة أسئلة لقياس فهمك لمفهوم طاقة كِبس الحرة ΔG ودلالات إشارتها وعلاقتها بـ ΔH و ΔS و T.</p>
+
+      <div class="quiz-progress">
+        <div class="qpip active"></div>
+        <div class="qpip"></div>
+        <div class="qpip"></div>
+      </div>
+
+      <div class="q-card" id="quiz-card"></div>
+
+      <div class="foot-nav" style="margin-top:24px;">
+        <button class="btn ghost foot-prev">→ العودة للدرس</button>
+        <span></span>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
